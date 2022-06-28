@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:perfect_volume_control/perfect_volume_control.dart';
-import 'package:podcast/screens/topic.dart';
+import 'package:podcast/screens/podcast.dart';
 import 'package:podcast/utils/colors.dart';
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';
 
@@ -71,7 +71,7 @@ class _BodyState extends State<Body> {
                             context,
                             MaterialPageRoute(
                               builder: (context) {
-                                return TopicPage();
+                                return PodcastPage();
                               },
                             ),
                           );

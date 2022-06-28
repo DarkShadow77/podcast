@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:podcast/widgets/bottom_bar.dart';
 
 import '../HomePage/body.dart';
 
