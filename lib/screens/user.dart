@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import '../HomePage/body.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+import '../UserPage/body.dart';
+
+class UserPage extends StatefulWidget {
+  const UserPage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<UserPage> createState() => _UserPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _UserPageState extends State<UserPage> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;

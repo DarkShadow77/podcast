@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sfsymbols/flutter_sfsymbols.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:podcast/screens/user.dart';
 import 'package:podcast/utils/colors.dart';
 import 'package:podcast/widgets/backgound.dart';
 
@@ -8,6 +9,7 @@ import '../screens/audio.dart';
 import '../screens/podcast.dart';
 import '../widgets/play_button.dart';
 import '../widgets/rounded_input_field.dart';
+import 'PodcastItem.dart';
 import 'home_bottom_bar.dart';
 
 class Body extends StatefulWidget {
@@ -103,24 +105,36 @@ class _BodyState extends State<Body> {
                                 ),
                               ],
                             ),
-                            Center(
-                              child: Container(
-                                width: 35,
-                                padding: EdgeInsets.all(2),
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                    color: AppColors.lightgrey,
-                                    width: 1.5,
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) {
+                                      return UserPage();
+                                    },
                                   ),
-                                  shape: BoxShape.circle,
-                                ),
+                                );
+                              },
+                              child: Center(
                                 child: Container(
+                                  width: 35,
+                                  padding: EdgeInsets.all(2),
                                   decoration: BoxDecoration(
+                                    border: Border.all(
+                                      color: AppColors.lightgrey,
+                                      width: 1.5,
+                                    ),
                                     shape: BoxShape.circle,
-                                    image: DecorationImage(
-                                      fit: BoxFit.contain,
-                                      image: AssetImage(
-                                        "assets/images/music_thumbnail.jpg",
+                                  ),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      image: DecorationImage(
+                                        fit: BoxFit.contain,
+                                        image: AssetImage(
+                                          "assets/images/music_thumbnail.jpg",
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -147,27 +161,32 @@ class _BodyState extends State<Body> {
                         borderRadius: BorderRadius.circular(18),
                       ),
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          IconButton(
-                            icon: FaIcon(FontAwesomeIcons.search),
-                            color: Colors.white70,
-                            onPressed: () {},
-                          ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          SizedBox(
-                            width: 240,
-                            child: TextField(
-                              decoration: InputDecoration(
-                                  hintText: "Search in All",
-                                  hintStyle: TextStyle(
-                                    fontSize: 15,
-                                    color: Colors.white38,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                  border: InputBorder.none),
-                            ),
+                          Row(
+                            children: [
+                              IconButton(
+                                icon: FaIcon(FontAwesomeIcons.search),
+                                color: Colors.white70,
+                                onPressed: () {},
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              SizedBox(
+                                width: 200,
+                                child: TextField(
+                                  decoration: InputDecoration(
+                                      hintText: "Search in All",
+                                      hintStyle: TextStyle(
+                                        fontSize: 15,
+                                        color: Colors.white38,
+                                        fontWeight: FontWeight.w400,
+                                      ),
+                                      border: InputBorder.none),
+                                ),
+                              ),
+                            ],
                           ),
                           RotatedBox(
                             quarterTurns: 1,
@@ -261,7 +280,7 @@ class _BodyState extends State<Body> {
                                     "See All",
                                     style: TextStyle(
                                       color: AppColors.containerone,
-                                      fontSize: 10,
+                                      fontSize: 12,
                                     ),
                                   ),
                                 ],
@@ -270,145 +289,7 @@ class _BodyState extends State<Body> {
                             SizedBox(
                               height: 15,
                             ),
-                            Row(
-                              children: [
-                                GestureDetector(
-                                  onTap: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) {
-                                          return PodcastPage();
-                                        },
-                                      ),
-                                    );
-                                  },
-                                  child: Column(
-                                    children: [
-                                      Container(
-                                        width: 90,
-                                        height: 90,
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(
-                                            20,
-                                          ),
-                                          color: Colors.grey,
-                                          image: DecorationImage(
-                                            fit: BoxFit.fill,
-                                            image: AssetImage(
-                                                "assets/images/ted.png"),
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 10,
-                                      ),
-                                      Text(
-                                        "Ted Talks Daily",
-                                        style: TextStyle(
-                                          color: Colors.white70,
-                                          fontSize: 12,
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 5,
-                                      ),
-                                      Text(
-                                        "Ted",
-                                        style: TextStyle(
-                                          color: AppColors.lightgrey,
-                                          fontSize: 9,
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Column(
-                                  children: [
-                                    Container(
-                                      width: 90,
-                                      height: 90,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                          20,
-                                        ),
-                                        color: Colors.grey,
-                                        image: DecorationImage(
-                                          fit: BoxFit.fill,
-                                          image: AssetImage(
-                                              "assets/images/ted.png"),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Ted Talks Daily",
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      "Ted",
-                                      style: TextStyle(
-                                        color: AppColors.lightgrey,
-                                        fontSize: 9,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Column(
-                                  children: [
-                                    Container(
-                                      width: 90,
-                                      height: 90,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                          20,
-                                        ),
-                                        color: Colors.grey,
-                                        image: DecorationImage(
-                                          fit: BoxFit.fill,
-                                          image: AssetImage(
-                                              "assets/images/ted.png"),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Ted Talks Daily",
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      "Ted",
-                                      style: TextStyle(
-                                        color: AppColors.lightgrey,
-                                        fontSize: 9,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ],
-                            ),
+                            PodcastItem(),
                             SizedBox(
                               height: 20,
                             ),
@@ -464,7 +345,7 @@ class _BodyState extends State<Body> {
                                         child: IconButton(
                                             icon: FaIcon(FontAwesomeIcons
                                                 .fireFlameCurved),
-                                            iconSize: 20,
+                                            iconSize: 15,
                                             onPressed: () {}),
                                         /*Icon(
                                           SFSymbols.flame,
@@ -1091,7 +972,7 @@ class _BodyState extends State<Body> {
                         child: Column(
                           children: [
                             SizedBox(
-                              height: 20,
+                              height: 10,
                             ),
                             Container(
                               child: Row(
@@ -1121,137 +1002,11 @@ class _BodyState extends State<Body> {
                               ),
                             ),
                             SizedBox(
-                              height: 15,
-                            ),
-                            Row(
-                              children: [
-                                Column(
-                                  children: [
-                                    Container(
-                                      width: 90,
-                                      height: 90,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                          20,
-                                        ),
-                                        color: Colors.grey,
-                                        image: DecorationImage(
-                                          fit: BoxFit.fill,
-                                          image: AssetImage(
-                                              "assets/images/ted.png"),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Ted Talks Daily",
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      "Ted",
-                                      style: TextStyle(
-                                        color: AppColors.lightgrey,
-                                        fontSize: 9,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Column(
-                                  children: [
-                                    Container(
-                                      width: 90,
-                                      height: 90,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                          20,
-                                        ),
-                                        color: Colors.grey,
-                                        image: DecorationImage(
-                                          fit: BoxFit.fill,
-                                          image: AssetImage(
-                                              "assets/images/ted.png"),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Ted Talks Daily",
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      "Ted",
-                                      style: TextStyle(
-                                        color: AppColors.lightgrey,
-                                        fontSize: 9,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Column(
-                                  children: [
-                                    Container(
-                                      width: 90,
-                                      height: 90,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                          20,
-                                        ),
-                                        color: Colors.grey,
-                                        image: DecorationImage(
-                                          fit: BoxFit.fill,
-                                          image: AssetImage(
-                                              "assets/images/ted.png"),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Ted Talks Daily",
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      "Ted",
-                                      style: TextStyle(
-                                        color: AppColors.lightgrey,
-                                        fontSize: 9,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ],
-                            ),
-                            SizedBox(
                               height: 20,
+                            ),
+                            PodcastItem(),
+                            SizedBox(
+                              height: 10,
                             ),
                           ],
                         ),
@@ -1260,7 +1015,7 @@ class _BodyState extends State<Body> {
                         child: Column(
                           children: [
                             SizedBox(
-                              height: 20,
+                              height: 10,
                             ),
                             Container(
                               child: Row(
@@ -1290,137 +1045,11 @@ class _BodyState extends State<Body> {
                               ),
                             ),
                             SizedBox(
-                              height: 15,
-                            ),
-                            Row(
-                              children: [
-                                Column(
-                                  children: [
-                                    Container(
-                                      width: 90,
-                                      height: 90,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                          20,
-                                        ),
-                                        color: Colors.grey,
-                                        image: DecorationImage(
-                                          fit: BoxFit.fill,
-                                          image: AssetImage(
-                                              "assets/images/ted.png"),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Ted Talks Daily",
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      "Ted",
-                                      style: TextStyle(
-                                        color: AppColors.lightgrey,
-                                        fontSize: 9,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Column(
-                                  children: [
-                                    Container(
-                                      width: 90,
-                                      height: 90,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                          20,
-                                        ),
-                                        color: Colors.grey,
-                                        image: DecorationImage(
-                                          fit: BoxFit.fill,
-                                          image: AssetImage(
-                                              "assets/images/ted.png"),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Ted Talks Daily",
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      "Ted",
-                                      style: TextStyle(
-                                        color: AppColors.lightgrey,
-                                        fontSize: 9,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Column(
-                                  children: [
-                                    Container(
-                                      width: 90,
-                                      height: 90,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                          20,
-                                        ),
-                                        color: Colors.grey,
-                                        image: DecorationImage(
-                                          fit: BoxFit.fill,
-                                          image: AssetImage(
-                                              "assets/images/ted.png"),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Ted Talks Daily",
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      "Ted",
-                                      style: TextStyle(
-                                        color: AppColors.lightgrey,
-                                        fontSize: 9,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ],
-                            ),
-                            SizedBox(
                               height: 20,
+                            ),
+                            PodcastItem(),
+                            SizedBox(
+                              height: 10,
                             ),
                           ],
                         ),
@@ -1429,7 +1058,7 @@ class _BodyState extends State<Body> {
                         child: Column(
                           children: [
                             SizedBox(
-                              height: 20,
+                              height: 10,
                             ),
                             Container(
                               child: Row(
@@ -1459,137 +1088,11 @@ class _BodyState extends State<Body> {
                               ),
                             ),
                             SizedBox(
-                              height: 15,
-                            ),
-                            Row(
-                              children: [
-                                Column(
-                                  children: [
-                                    Container(
-                                      width: 90,
-                                      height: 90,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                          20,
-                                        ),
-                                        color: Colors.grey,
-                                        image: DecorationImage(
-                                          fit: BoxFit.fill,
-                                          image: AssetImage(
-                                              "assets/images/ted.png"),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Ted Talks Daily",
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      "Ted",
-                                      style: TextStyle(
-                                        color: AppColors.lightgrey,
-                                        fontSize: 9,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Column(
-                                  children: [
-                                    Container(
-                                      width: 90,
-                                      height: 90,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                          20,
-                                        ),
-                                        color: Colors.grey,
-                                        image: DecorationImage(
-                                          fit: BoxFit.fill,
-                                          image: AssetImage(
-                                              "assets/images/ted.png"),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Ted Talks Daily",
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      "Ted",
-                                      style: TextStyle(
-                                        color: AppColors.lightgrey,
-                                        fontSize: 9,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Column(
-                                  children: [
-                                    Container(
-                                      width: 90,
-                                      height: 90,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                          20,
-                                        ),
-                                        color: Colors.grey,
-                                        image: DecorationImage(
-                                          fit: BoxFit.fill,
-                                          image: AssetImage(
-                                              "assets/images/ted.png"),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Ted Talks Daily",
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      "Ted",
-                                      style: TextStyle(
-                                        color: AppColors.lightgrey,
-                                        fontSize: 9,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ],
-                            ),
-                            SizedBox(
                               height: 20,
+                            ),
+                            PodcastItem(),
+                            SizedBox(
+                              height: 10,
                             ),
                           ],
                         ),
@@ -1598,7 +1101,7 @@ class _BodyState extends State<Body> {
                         child: Column(
                           children: [
                             SizedBox(
-                              height: 20,
+                              height: 10,
                             ),
                             Container(
                               child: Row(
@@ -1628,137 +1131,11 @@ class _BodyState extends State<Body> {
                               ),
                             ),
                             SizedBox(
-                              height: 15,
-                            ),
-                            Row(
-                              children: [
-                                Column(
-                                  children: [
-                                    Container(
-                                      width: 90,
-                                      height: 90,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                          20,
-                                        ),
-                                        color: Colors.grey,
-                                        image: DecorationImage(
-                                          fit: BoxFit.fill,
-                                          image: AssetImage(
-                                              "assets/images/ted.png"),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Ted Talks Daily",
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      "Ted",
-                                      style: TextStyle(
-                                        color: AppColors.lightgrey,
-                                        fontSize: 9,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Column(
-                                  children: [
-                                    Container(
-                                      width: 90,
-                                      height: 90,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                          20,
-                                        ),
-                                        color: Colors.grey,
-                                        image: DecorationImage(
-                                          fit: BoxFit.fill,
-                                          image: AssetImage(
-                                              "assets/images/ted.png"),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Ted Talks Daily",
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      "Ted",
-                                      style: TextStyle(
-                                        color: AppColors.lightgrey,
-                                        fontSize: 9,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Column(
-                                  children: [
-                                    Container(
-                                      width: 90,
-                                      height: 90,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                          20,
-                                        ),
-                                        color: Colors.grey,
-                                        image: DecorationImage(
-                                          fit: BoxFit.fill,
-                                          image: AssetImage(
-                                              "assets/images/ted.png"),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Ted Talks Daily",
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      "Ted",
-                                      style: TextStyle(
-                                        color: AppColors.lightgrey,
-                                        fontSize: 9,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ],
-                            ),
-                            SizedBox(
                               height: 20,
+                            ),
+                            PodcastItem(),
+                            SizedBox(
+                              height: 10,
                             ),
                           ],
                         ),
@@ -1767,7 +1144,7 @@ class _BodyState extends State<Body> {
                         child: Column(
                           children: [
                             SizedBox(
-                              height: 20,
+                              height: 10,
                             ),
                             Container(
                               child: Row(
@@ -1797,137 +1174,11 @@ class _BodyState extends State<Body> {
                               ),
                             ),
                             SizedBox(
-                              height: 15,
-                            ),
-                            Row(
-                              children: [
-                                Column(
-                                  children: [
-                                    Container(
-                                      width: 90,
-                                      height: 90,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                          20,
-                                        ),
-                                        color: Colors.grey,
-                                        image: DecorationImage(
-                                          fit: BoxFit.fill,
-                                          image: AssetImage(
-                                              "assets/images/ted.png"),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Ted Talks Daily",
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      "Ted",
-                                      style: TextStyle(
-                                        color: AppColors.lightgrey,
-                                        fontSize: 9,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Column(
-                                  children: [
-                                    Container(
-                                      width: 90,
-                                      height: 90,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                          20,
-                                        ),
-                                        color: Colors.grey,
-                                        image: DecorationImage(
-                                          fit: BoxFit.fill,
-                                          image: AssetImage(
-                                              "assets/images/ted.png"),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Ted Talks Daily",
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      "Ted",
-                                      style: TextStyle(
-                                        color: AppColors.lightgrey,
-                                        fontSize: 9,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Column(
-                                  children: [
-                                    Container(
-                                      width: 90,
-                                      height: 90,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                          20,
-                                        ),
-                                        color: Colors.grey,
-                                        image: DecorationImage(
-                                          fit: BoxFit.fill,
-                                          image: AssetImage(
-                                              "assets/images/ted.png"),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Ted Talks Daily",
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      "Ted",
-                                      style: TextStyle(
-                                        color: AppColors.lightgrey,
-                                        fontSize: 9,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ],
-                            ),
-                            SizedBox(
                               height: 20,
+                            ),
+                            PodcastItem(),
+                            SizedBox(
+                              height: 10,
                             ),
                           ],
                         ),
@@ -1936,7 +1187,7 @@ class _BodyState extends State<Body> {
                         child: Column(
                           children: [
                             SizedBox(
-                              height: 20,
+                              height: 10,
                             ),
                             Container(
                               child: Row(
@@ -1966,137 +1217,11 @@ class _BodyState extends State<Body> {
                               ),
                             ),
                             SizedBox(
-                              height: 15,
-                            ),
-                            Row(
-                              children: [
-                                Column(
-                                  children: [
-                                    Container(
-                                      width: 90,
-                                      height: 90,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                          20,
-                                        ),
-                                        color: Colors.grey,
-                                        image: DecorationImage(
-                                          fit: BoxFit.fill,
-                                          image: AssetImage(
-                                              "assets/images/ted.png"),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Ted Talks Daily",
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      "Ted",
-                                      style: TextStyle(
-                                        color: AppColors.lightgrey,
-                                        fontSize: 9,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Column(
-                                  children: [
-                                    Container(
-                                      width: 90,
-                                      height: 90,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                          20,
-                                        ),
-                                        color: Colors.grey,
-                                        image: DecorationImage(
-                                          fit: BoxFit.fill,
-                                          image: AssetImage(
-                                              "assets/images/ted.png"),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Ted Talks Daily",
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      "Ted",
-                                      style: TextStyle(
-                                        color: AppColors.lightgrey,
-                                        fontSize: 9,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Column(
-                                  children: [
-                                    Container(
-                                      width: 90,
-                                      height: 90,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                          20,
-                                        ),
-                                        color: Colors.grey,
-                                        image: DecorationImage(
-                                          fit: BoxFit.fill,
-                                          image: AssetImage(
-                                              "assets/images/ted.png"),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Ted Talks Daily",
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      "Ted",
-                                      style: TextStyle(
-                                        color: AppColors.lightgrey,
-                                        fontSize: 9,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ],
-                            ),
-                            SizedBox(
                               height: 20,
+                            ),
+                            PodcastItem(),
+                            SizedBox(
+                              height: 10,
                             ),
                           ],
                         ),
@@ -2105,7 +1230,7 @@ class _BodyState extends State<Body> {
                         child: Column(
                           children: [
                             SizedBox(
-                              height: 20,
+                              height: 10,
                             ),
                             Container(
                               child: Row(
@@ -2135,137 +1260,11 @@ class _BodyState extends State<Body> {
                               ),
                             ),
                             SizedBox(
-                              height: 15,
-                            ),
-                            Row(
-                              children: [
-                                Column(
-                                  children: [
-                                    Container(
-                                      width: 90,
-                                      height: 90,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                          20,
-                                        ),
-                                        color: Colors.grey,
-                                        image: DecorationImage(
-                                          fit: BoxFit.fill,
-                                          image: AssetImage(
-                                              "assets/images/ted.png"),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Ted Talks Daily",
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      "Ted",
-                                      style: TextStyle(
-                                        color: AppColors.lightgrey,
-                                        fontSize: 9,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Column(
-                                  children: [
-                                    Container(
-                                      width: 90,
-                                      height: 90,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                          20,
-                                        ),
-                                        color: Colors.grey,
-                                        image: DecorationImage(
-                                          fit: BoxFit.fill,
-                                          image: AssetImage(
-                                              "assets/images/ted.png"),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Ted Talks Daily",
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      "Ted",
-                                      style: TextStyle(
-                                        color: AppColors.lightgrey,
-                                        fontSize: 9,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Column(
-                                  children: [
-                                    Container(
-                                      width: 90,
-                                      height: 90,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                          20,
-                                        ),
-                                        color: Colors.grey,
-                                        image: DecorationImage(
-                                          fit: BoxFit.fill,
-                                          image: AssetImage(
-                                              "assets/images/ted.png"),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Ted Talks Daily",
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      "Ted",
-                                      style: TextStyle(
-                                        color: AppColors.lightgrey,
-                                        fontSize: 9,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ],
-                            ),
-                            SizedBox(
                               height: 20,
+                            ),
+                            PodcastItem(),
+                            SizedBox(
+                              height: 10,
                             ),
                           ],
                         ),
@@ -2274,7 +1273,7 @@ class _BodyState extends State<Body> {
                         child: Column(
                           children: [
                             SizedBox(
-                              height: 20,
+                              height: 10,
                             ),
                             Container(
                               child: Row(
@@ -2304,137 +1303,11 @@ class _BodyState extends State<Body> {
                               ),
                             ),
                             SizedBox(
-                              height: 15,
-                            ),
-                            Row(
-                              children: [
-                                Column(
-                                  children: [
-                                    Container(
-                                      width: 90,
-                                      height: 90,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                          20,
-                                        ),
-                                        color: Colors.grey,
-                                        image: DecorationImage(
-                                          fit: BoxFit.fill,
-                                          image: AssetImage(
-                                              "assets/images/ted.png"),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Ted Talks Daily",
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      "Ted",
-                                      style: TextStyle(
-                                        color: AppColors.lightgrey,
-                                        fontSize: 9,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Column(
-                                  children: [
-                                    Container(
-                                      width: 90,
-                                      height: 90,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                          20,
-                                        ),
-                                        color: Colors.grey,
-                                        image: DecorationImage(
-                                          fit: BoxFit.fill,
-                                          image: AssetImage(
-                                              "assets/images/ted.png"),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Ted Talks Daily",
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      "Ted",
-                                      style: TextStyle(
-                                        color: AppColors.lightgrey,
-                                        fontSize: 9,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Column(
-                                  children: [
-                                    Container(
-                                      width: 90,
-                                      height: 90,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                          20,
-                                        ),
-                                        color: Colors.grey,
-                                        image: DecorationImage(
-                                          fit: BoxFit.fill,
-                                          image: AssetImage(
-                                              "assets/images/ted.png"),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Ted Talks Daily",
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      "Ted",
-                                      style: TextStyle(
-                                        color: AppColors.lightgrey,
-                                        fontSize: 9,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ],
-                            ),
-                            SizedBox(
                               height: 20,
+                            ),
+                            PodcastItem(),
+                            SizedBox(
+                              height: 10,
                             ),
                           ],
                         ),
@@ -2443,7 +1316,7 @@ class _BodyState extends State<Body> {
                         child: Column(
                           children: [
                             SizedBox(
-                              height: 20,
+                              height: 10,
                             ),
                             Container(
                               child: Row(
@@ -2473,137 +1346,11 @@ class _BodyState extends State<Body> {
                               ),
                             ),
                             SizedBox(
-                              height: 15,
-                            ),
-                            Row(
-                              children: [
-                                Column(
-                                  children: [
-                                    Container(
-                                      width: 90,
-                                      height: 90,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                          20,
-                                        ),
-                                        color: Colors.grey,
-                                        image: DecorationImage(
-                                          fit: BoxFit.fill,
-                                          image: AssetImage(
-                                              "assets/images/ted.png"),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Ted Talks Daily",
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      "Ted",
-                                      style: TextStyle(
-                                        color: AppColors.lightgrey,
-                                        fontSize: 9,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Column(
-                                  children: [
-                                    Container(
-                                      width: 90,
-                                      height: 90,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                          20,
-                                        ),
-                                        color: Colors.grey,
-                                        image: DecorationImage(
-                                          fit: BoxFit.fill,
-                                          image: AssetImage(
-                                              "assets/images/ted.png"),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Ted Talks Daily",
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      "Ted",
-                                      style: TextStyle(
-                                        color: AppColors.lightgrey,
-                                        fontSize: 9,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Column(
-                                  children: [
-                                    Container(
-                                      width: 90,
-                                      height: 90,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                          20,
-                                        ),
-                                        color: Colors.grey,
-                                        image: DecorationImage(
-                                          fit: BoxFit.fill,
-                                          image: AssetImage(
-                                              "assets/images/ted.png"),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Ted Talks Daily",
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      "Ted",
-                                      style: TextStyle(
-                                        color: AppColors.lightgrey,
-                                        fontSize: 9,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ],
-                            ),
-                            SizedBox(
                               height: 20,
+                            ),
+                            PodcastItem(),
+                            SizedBox(
+                              height: 10,
                             ),
                           ],
                         ),
@@ -2612,7 +1359,7 @@ class _BodyState extends State<Body> {
                         child: Column(
                           children: [
                             SizedBox(
-                              height: 20,
+                              height: 10,
                             ),
                             Container(
                               child: Row(
@@ -2642,137 +1389,11 @@ class _BodyState extends State<Body> {
                               ),
                             ),
                             SizedBox(
-                              height: 15,
-                            ),
-                            Row(
-                              children: [
-                                Column(
-                                  children: [
-                                    Container(
-                                      width: 90,
-                                      height: 90,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                          20,
-                                        ),
-                                        color: Colors.grey,
-                                        image: DecorationImage(
-                                          fit: BoxFit.fill,
-                                          image: AssetImage(
-                                              "assets/images/ted.png"),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Ted Talks Daily",
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      "Ted",
-                                      style: TextStyle(
-                                        color: AppColors.lightgrey,
-                                        fontSize: 9,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Column(
-                                  children: [
-                                    Container(
-                                      width: 90,
-                                      height: 90,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                          20,
-                                        ),
-                                        color: Colors.grey,
-                                        image: DecorationImage(
-                                          fit: BoxFit.fill,
-                                          image: AssetImage(
-                                              "assets/images/ted.png"),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Ted Talks Daily",
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      "Ted",
-                                      style: TextStyle(
-                                        color: AppColors.lightgrey,
-                                        fontSize: 9,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Column(
-                                  children: [
-                                    Container(
-                                      width: 90,
-                                      height: 90,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                          20,
-                                        ),
-                                        color: Colors.grey,
-                                        image: DecorationImage(
-                                          fit: BoxFit.fill,
-                                          image: AssetImage(
-                                              "assets/images/ted.png"),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Ted Talks Daily",
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      "Ted",
-                                      style: TextStyle(
-                                        color: AppColors.lightgrey,
-                                        fontSize: 9,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ],
-                            ),
-                            SizedBox(
                               height: 20,
+                            ),
+                            PodcastItem(),
+                            SizedBox(
+                              height: 10,
                             ),
                           ],
                         ),
@@ -2781,7 +1402,7 @@ class _BodyState extends State<Body> {
                         child: Column(
                           children: [
                             SizedBox(
-                              height: 20,
+                              height: 10,
                             ),
                             Container(
                               child: Row(
@@ -2811,137 +1432,11 @@ class _BodyState extends State<Body> {
                               ),
                             ),
                             SizedBox(
-                              height: 15,
-                            ),
-                            Row(
-                              children: [
-                                Column(
-                                  children: [
-                                    Container(
-                                      width: 90,
-                                      height: 90,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                          20,
-                                        ),
-                                        color: Colors.grey,
-                                        image: DecorationImage(
-                                          fit: BoxFit.fill,
-                                          image: AssetImage(
-                                              "assets/images/ted.png"),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Ted Talks Daily",
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      "Ted",
-                                      style: TextStyle(
-                                        color: AppColors.lightgrey,
-                                        fontSize: 9,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Column(
-                                  children: [
-                                    Container(
-                                      width: 90,
-                                      height: 90,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                          20,
-                                        ),
-                                        color: Colors.grey,
-                                        image: DecorationImage(
-                                          fit: BoxFit.fill,
-                                          image: AssetImage(
-                                              "assets/images/ted.png"),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Ted Talks Daily",
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      "Ted",
-                                      style: TextStyle(
-                                        color: AppColors.lightgrey,
-                                        fontSize: 9,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Column(
-                                  children: [
-                                    Container(
-                                      width: 90,
-                                      height: 90,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                          20,
-                                        ),
-                                        color: Colors.grey,
-                                        image: DecorationImage(
-                                          fit: BoxFit.fill,
-                                          image: AssetImage(
-                                              "assets/images/ted.png"),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Ted Talks Daily",
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      "Ted",
-                                      style: TextStyle(
-                                        color: AppColors.lightgrey,
-                                        fontSize: 9,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ],
-                            ),
-                            SizedBox(
                               height: 20,
+                            ),
+                            PodcastItem(),
+                            SizedBox(
+                              height: 10,
                             ),
                           ],
                         ),
@@ -2950,7 +1445,7 @@ class _BodyState extends State<Body> {
                         child: Column(
                           children: [
                             SizedBox(
-                              height: 20,
+                              height: 10,
                             ),
                             Container(
                               child: Row(
@@ -2980,137 +1475,11 @@ class _BodyState extends State<Body> {
                               ),
                             ),
                             SizedBox(
-                              height: 15,
-                            ),
-                            Row(
-                              children: [
-                                Column(
-                                  children: [
-                                    Container(
-                                      width: 90,
-                                      height: 90,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                          20,
-                                        ),
-                                        color: Colors.grey,
-                                        image: DecorationImage(
-                                          fit: BoxFit.fill,
-                                          image: AssetImage(
-                                              "assets/images/ted.png"),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Ted Talks Daily",
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      "Ted",
-                                      style: TextStyle(
-                                        color: AppColors.lightgrey,
-                                        fontSize: 9,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Column(
-                                  children: [
-                                    Container(
-                                      width: 90,
-                                      height: 90,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                          20,
-                                        ),
-                                        color: Colors.grey,
-                                        image: DecorationImage(
-                                          fit: BoxFit.fill,
-                                          image: AssetImage(
-                                              "assets/images/ted.png"),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Ted Talks Daily",
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      "Ted",
-                                      style: TextStyle(
-                                        color: AppColors.lightgrey,
-                                        fontSize: 9,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Column(
-                                  children: [
-                                    Container(
-                                      width: 90,
-                                      height: 90,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                          20,
-                                        ),
-                                        color: Colors.grey,
-                                        image: DecorationImage(
-                                          fit: BoxFit.fill,
-                                          image: AssetImage(
-                                              "assets/images/ted.png"),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      "Ted Talks Daily",
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      "Ted",
-                                      style: TextStyle(
-                                        color: AppColors.lightgrey,
-                                        fontSize: 9,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ],
-                            ),
-                            SizedBox(
                               height: 20,
+                            ),
+                            PodcastItem(),
+                            SizedBox(
+                              height: 10,
                             ),
                           ],
                         ),

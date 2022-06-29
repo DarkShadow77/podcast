@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:podcast/screens/author.dart';
 import 'package:podcast/utils/colors.dart';
 import 'package:podcast/widgets/backgound.dart';
 
@@ -166,18 +167,32 @@ class _BodyState extends State<Body> {
                                       SizedBox(
                                         height: 5,
                                       ),
-                                      Container(
-                                        decoration: BoxDecoration(
+                                      GestureDetector(
+                                        onTap: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) {
+                                                return AuthorPage();
+                                              },
+                                            ),
+                                          );
+                                        },
+                                        child: Container(
+                                          decoration: BoxDecoration(
                                             border: Border(
-                                                bottom: BorderSide(
-                                                    width: 2,
-                                                    color: Colors.white54))),
-                                        child: Text(
-                                          "Ted",
-                                          style: TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.white54,
+                                              bottom: BorderSide(
+                                                  width: 2,
+                                                  color: Colors.white54),
+                                            ),
+                                          ),
+                                          child: Text(
+                                            "Ted",
+                                            style: TextStyle(
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.white54,
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -212,13 +227,28 @@ class _BodyState extends State<Body> {
                                               ),
                                             ),
                                             child: Center(
-                                              child: Text(
-                                                "Follow",
-                                                style: TextStyle(
-                                                  fontSize: 18,
-                                                  fontWeight: FontWeight.w600,
-                                                  color: Colors.white,
-                                                ),
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Icon(
+                                                    Icons.add,
+                                                    color: Colors.white,
+                                                    size: 22,
+                                                  ),
+                                                  SizedBox(
+                                                    width: 10,
+                                                  ),
+                                                  Text(
+                                                    "Follow",
+                                                    style: TextStyle(
+                                                      fontSize: 18,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      color: Colors.white,
+                                                    ),
+                                                  ),
+                                                ],
                                               ),
                                             ),
                                           ),
@@ -566,38 +596,4 @@ class Popover extends StatelessWidget {
       ),
     );
   }
-}
-
-Widget _buildListItem(
-  BuildContext context, {
-  required Widget title,
-}) {
-  final theme = Theme.of(context);
-
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: [
-      Container(
-        padding: EdgeInsets.symmetric(
-          horizontal: 24.0,
-          vertical: 16.0,
-        ),
-        decoration: BoxDecoration(
-          border: Border(
-            bottom: BorderSide(
-              color: theme.dividerColor,
-              width: 0.5,
-            ),
-          ),
-        ),
-        child: DefaultTextStyle(
-          child: title,
-          style: TextStyle(
-            fontSize: 24,
-            color: Colors.black,
-          ),
-        ),
-      ),
-    ],
-  );
 }

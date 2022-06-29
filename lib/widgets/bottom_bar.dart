@@ -171,10 +171,20 @@ class BottomBar extends StatelessWidget {
                                     begin: Alignment.topRight,
                                     end: Alignment.bottomLeft,
                                   ).createShader(bounds),
-                                  child: Icon(
-                                    Icons.home_filled,
+                                  child: IconButton(
+                                    icon: FaIcon(FontAwesomeIcons.house),
+                                    iconSize: 24,
                                     color: Colors.white,
-                                    size: 30,
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) {
+                                            return HomePage();
+                                          },
+                                        ),
+                                      );
+                                    },
                                   ),
                                 ),
                               ),
