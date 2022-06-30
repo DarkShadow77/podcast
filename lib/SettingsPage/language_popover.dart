@@ -12,54 +12,539 @@ class LanguagePopover extends StatelessWidget {
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: () => Navigator.of(context).pop(),
-      child: GestureDetector(
-        onTap: () {},
-        child: DraggableScrollableSheet(
-          initialChildSize: 0.5,
-          builder: (_, controller) => Stack(
-            children: [
-              Container(
-                margin: const EdgeInsets.all(10.0),
-                padding: const EdgeInsets.only(
-                    right: 20.0, left: 20.0, top: 40.0, bottom: 20.0),
-                clipBehavior: Clip.antiAlias,
-                decoration: BoxDecoration(
-                  color: AppColors.darkgrey,
-                  borderRadius: const BorderRadius.all(Radius.circular(30.0)),
-                ),
-                child: ListView(
-                  physics: BouncingScrollPhysics(),
-                  children: [
-                    Container(
-                      child: Column(
-                        children: [
-                          Text(
-                            "Linking together the histories of Henrietta Swan Leavitt, Edwin Hubble and Tracy K. Smith, poet and thinker Maria Popova crafts an astonishing story of how humanity came to see the edge of the observable universe. (Followed by an animated excerpt of 'My God, It's Full of Stars,' by Tracy K. Smith)",
-                            softWrap: true,
-                            maxLines: 30,
-                            style: TextStyle(
-                              height: 2,
-                              color: Colors.white,
-                              fontSize: 18,
-                              overflow: TextOverflow.ellipsis,
+      child: DraggableScrollableSheet(
+        initialChildSize: 0.5,
+        builder: (_, controller) => Stack(
+          children: [
+            Container(
+              margin: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.only(
+                  right: 20.0, left: 20.0, top: 80.0, bottom: 20.0),
+              clipBehavior: Clip.antiAlias,
+              decoration: BoxDecoration(
+                color: AppColors.darkgrey,
+                borderRadius: const BorderRadius.all(Radius.circular(30.0)),
+              ),
+              child: ListView(
+                physics: BouncingScrollPhysics(),
+                children: [
+                  Container(
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 15,
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            OutlinedButton(
+                              onPressed: () {},
+                              child: Text(
+                                "English",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white70,
+                                ),
+                              ),
+                              style: OutlinedButton.styleFrom(
+                                side: BorderSide(
+                                  color: Colors.transparent,
+                                ),
+                              ),
                             ),
-                          ),
-                        ],
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                left: 20,
+                              ),
+                              child: Divider(
+                                height: 1,
+                                color: AppColors.lightgrey.withOpacity(0.25),
+                                thickness: 1.5,
+                              ),
+                            ),
+                            OutlinedButton(
+                              onPressed: () {},
+                              child: Text(
+                                "English",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white70,
+                                ),
+                              ),
+                              style: OutlinedButton.styleFrom(
+                                side: BorderSide(
+                                  color: Colors.transparent,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                left: 20,
+                              ),
+                              child: Divider(
+                                height: 1,
+                                color: AppColors.lightgrey.withOpacity(0.25),
+                                thickness: 1.5,
+                              ),
+                            ),
+                            OutlinedButton(
+                              onPressed: () {},
+                              child: Text(
+                                "English",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white70,
+                                ),
+                              ),
+                              style: OutlinedButton.styleFrom(
+                                side: BorderSide(
+                                  color: Colors.transparent,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                left: 20,
+                              ),
+                              child: Divider(
+                                height: 1,
+                                color: AppColors.lightgrey.withOpacity(0.25),
+                                thickness: 1.5,
+                              ),
+                            ),
+                            OutlinedButton(
+                              onPressed: () {},
+                              child: Text(
+                                "English",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white70,
+                                ),
+                              ),
+                              style: OutlinedButton.styleFrom(
+                                side: BorderSide(
+                                  color: Colors.transparent,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                left: 20,
+                              ),
+                              child: Divider(
+                                height: 1,
+                                color: AppColors.lightgrey.withOpacity(0.25),
+                                thickness: 1.5,
+                              ),
+                            ),
+                            OutlinedButton(
+                              onPressed: () {},
+                              child: Text(
+                                "English",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white70,
+                                ),
+                              ),
+                              style: OutlinedButton.styleFrom(
+                                side: BorderSide(
+                                  color: Colors.transparent,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                left: 20,
+                              ),
+                              child: Divider(
+                                height: 1,
+                                color: AppColors.lightgrey.withOpacity(0.25),
+                                thickness: 1.5,
+                              ),
+                            ),
+                            OutlinedButton(
+                              onPressed: () {},
+                              child: Text(
+                                "English",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white70,
+                                ),
+                              ),
+                              style: OutlinedButton.styleFrom(
+                                side: BorderSide(
+                                  color: Colors.transparent,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                left: 20,
+                              ),
+                              child: Divider(
+                                height: 1,
+                                color: AppColors.lightgrey.withOpacity(0.25),
+                                thickness: 1.5,
+                              ),
+                            ),
+                            OutlinedButton(
+                              onPressed: () {},
+                              child: Text(
+                                "English",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white70,
+                                ),
+                              ),
+                              style: OutlinedButton.styleFrom(
+                                side: BorderSide(
+                                  color: Colors.transparent,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                left: 20,
+                              ),
+                              child: Divider(
+                                height: 1,
+                                color: AppColors.lightgrey.withOpacity(0.25),
+                                thickness: 1.5,
+                              ),
+                            ),
+                            OutlinedButton(
+                              onPressed: () {},
+                              child: Text(
+                                "English",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white70,
+                                ),
+                              ),
+                              style: OutlinedButton.styleFrom(
+                                side: BorderSide(
+                                  color: Colors.transparent,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                left: 20,
+                              ),
+                              child: Divider(
+                                height: 1,
+                                color: AppColors.lightgrey.withOpacity(0.25),
+                                thickness: 1.5,
+                              ),
+                            ),
+                            OutlinedButton(
+                              onPressed: () {},
+                              child: Text(
+                                "English",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white70,
+                                ),
+                              ),
+                              style: OutlinedButton.styleFrom(
+                                side: BorderSide(
+                                  color: Colors.transparent,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                left: 20,
+                              ),
+                              child: Divider(
+                                height: 1,
+                                color: AppColors.lightgrey.withOpacity(0.25),
+                                thickness: 1.5,
+                              ),
+                            ),
+                            OutlinedButton(
+                              onPressed: () {},
+                              child: Text(
+                                "English",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white70,
+                                ),
+                              ),
+                              style: OutlinedButton.styleFrom(
+                                side: BorderSide(
+                                  color: Colors.transparent,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                left: 20,
+                              ),
+                              child: Divider(
+                                height: 1,
+                                color: AppColors.lightgrey.withOpacity(0.25),
+                                thickness: 1.5,
+                              ),
+                            ),
+                            OutlinedButton(
+                              onPressed: () {},
+                              child: Text(
+                                "English",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white70,
+                                ),
+                              ),
+                              style: OutlinedButton.styleFrom(
+                                side: BorderSide(
+                                  color: Colors.transparent,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                left: 20,
+                              ),
+                              child: Divider(
+                                height: 1,
+                                color: AppColors.lightgrey.withOpacity(0.25),
+                                thickness: 1.5,
+                              ),
+                            ),
+                            OutlinedButton(
+                              onPressed: () {},
+                              child: Text(
+                                "English",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white70,
+                                ),
+                              ),
+                              style: OutlinedButton.styleFrom(
+                                side: BorderSide(
+                                  color: Colors.transparent,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                left: 20,
+                              ),
+                              child: Divider(
+                                height: 1,
+                                color: AppColors.lightgrey.withOpacity(0.25),
+                                thickness: 1.5,
+                              ),
+                            ),
+                            OutlinedButton(
+                              onPressed: () {},
+                              child: Text(
+                                "English",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white70,
+                                ),
+                              ),
+                              style: OutlinedButton.styleFrom(
+                                side: BorderSide(
+                                  color: Colors.transparent,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                left: 20,
+                              ),
+                              child: Divider(
+                                height: 1,
+                                color: AppColors.lightgrey.withOpacity(0.25),
+                                thickness: 1.5,
+                              ),
+                            ),
+                            OutlinedButton(
+                              onPressed: () {},
+                              child: Text(
+                                "English",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white70,
+                                ),
+                              ),
+                              style: OutlinedButton.styleFrom(
+                                side: BorderSide(
+                                  color: Colors.transparent,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                left: 20,
+                              ),
+                              child: Divider(
+                                height: 1,
+                                color: AppColors.lightgrey.withOpacity(0.25),
+                                thickness: 1.5,
+                              ),
+                            ),
+                            OutlinedButton(
+                              onPressed: () {},
+                              child: Text(
+                                "English",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white70,
+                                ),
+                              ),
+                              style: OutlinedButton.styleFrom(
+                                side: BorderSide(
+                                  color: Colors.transparent,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                left: 20,
+                              ),
+                              child: Divider(
+                                height: 1,
+                                color: AppColors.lightgrey.withOpacity(0.25),
+                                thickness: 1.5,
+                              ),
+                            ),
+                            OutlinedButton(
+                              onPressed: () {},
+                              child: Text(
+                                "English",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white70,
+                                ),
+                              ),
+                              style: OutlinedButton.styleFrom(
+                                side: BorderSide(
+                                  color: Colors.transparent,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                left: 20,
+                              ),
+                              child: Divider(
+                                height: 1,
+                                color: AppColors.lightgrey.withOpacity(0.25),
+                                thickness: 1.5,
+                              ),
+                            ),
+                            OutlinedButton(
+                              onPressed: () {},
+                              child: Text(
+                                "English",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white70,
+                                ),
+                              ),
+                              style: OutlinedButton.styleFrom(
+                                side: BorderSide(
+                                  color: Colors.transparent,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                left: 20,
+                              ),
+                              child: Divider(
+                                height: 1,
+                                color: AppColors.lightgrey.withOpacity(0.25),
+                                thickness: 1.5,
+                              ),
+                            ),
+                            OutlinedButton(
+                              onPressed: () {},
+                              child: Text(
+                                "English",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white70,
+                                ),
+                              ),
+                              style: OutlinedButton.styleFrom(
+                                side: BorderSide(
+                                  color: Colors.transparent,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                left: 20,
+                              ),
+                              child: Divider(
+                                height: 1,
+                                color: AppColors.lightgrey.withOpacity(0.25),
+                                thickness: 1.5,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Positioned(
+              left: 0,
+              right: 0,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    _buildHandle(context),
+                    Text(
+                      "Language",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      "Choose your preferred audio quality",
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Color(0xff545568),
                       ),
                     ),
                   ],
                 ),
               ),
-              Positioned(
-                left: 0,
-                right: 0,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: _buildHandle(context),
-                ),
-              )
-            ],
-          ),
+            )
+          ],
         ),
       ),
     );

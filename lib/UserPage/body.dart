@@ -190,10 +190,15 @@ class _BodyState extends State<Body> {
                           children: [
                             Row(
                               children: [
-                                Icon(
-                                  Icons.manage_accounts_outlined,
-                                  color: AppColors.lightgrey,
-                                  size: 32,
+                                Container(
+                                  height: 25,
+                                  width: 25,
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      image: AssetImage(
+                                          "assets/images/edit-profile.png"),
+                                    ),
+                                  ),
                                 ),
                                 SizedBox(
                                   width: 25,
@@ -219,7 +224,7 @@ class _BodyState extends State<Body> {
                         height: 18,
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 50.0),
+                        padding: const EdgeInsets.only(left: 30.0),
                         child: Divider(
                           height: 1,
                           thickness: 1.5,
@@ -241,10 +246,15 @@ class _BodyState extends State<Body> {
                           children: [
                             Row(
                               children: [
-                                Icon(
-                                  Icons.favorite_border_rounded,
-                                  color: AppColors.lightgrey,
-                                  size: 32,
+                                Container(
+                                  height: 25,
+                                  width: 25,
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      image: AssetImage(
+                                          "assets/images/favorite.png"),
+                                    ),
+                                  ),
                                 ),
                                 SizedBox(
                                   width: 25,
@@ -270,7 +280,7 @@ class _BodyState extends State<Body> {
                         height: 18,
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 50.0),
+                        padding: const EdgeInsets.only(left: 30.0),
                         child: Divider(
                           height: 1,
                           thickness: 1.5,
@@ -295,7 +305,7 @@ class _BodyState extends State<Body> {
                                 Icon(
                                   Icons.history_rounded,
                                   color: AppColors.lightgrey,
-                                  size: 32,
+                                  size: 25,
                                 ),
                                 SizedBox(
                                   width: 25,
@@ -321,7 +331,7 @@ class _BodyState extends State<Body> {
                         height: 18,
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 50.0),
+                        padding: const EdgeInsets.only(left: 30.0),
                         child: Divider(
                           height: 1,
                           thickness: 1.5,
@@ -346,7 +356,7 @@ class _BodyState extends State<Body> {
                                 Icon(
                                   Icons.downloading_rounded,
                                   color: AppColors.lightgrey,
-                                  size: 32,
+                                  size: 25,
                                 ),
                                 SizedBox(
                                   width: 25,

@@ -2,9 +2,9 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;
 import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart';
-import 'package:flutter_sfsymbols/flutter_sfsymbols.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../screens/mymusic.dart';
 import '../utils/colors.dart';
 
 class BottomBar extends StatelessWidget {
@@ -67,7 +67,16 @@ class BottomBar extends StatelessWidget {
                                   icon: FaIcon(FontAwesomeIcons.music),
                                   iconSize: 20,
                                   color: Colors.white54,
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) {
+                                          return MyMusicPage();
+                                        },
+                                      ),
+                                    );
+                                  },
                                 ),
                                 Text(
                                   "My Music",
