@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:podcast/screens/podcast.dart';
 import 'package:podcast/screens/user.dart';
 import 'package:podcast/utils/colors.dart';
-import 'package:podcast/widgets/backgound.dart';
+import 'package:podcast/widgets/background.dart';
 
 import '../HomePage/PodcastItem.dart';
 import '../screens/audio.dart';
@@ -96,12 +95,12 @@ class _BodyState extends State<Body> {
                                 width: 30,
                               ),
                               Container(
-                                width: 200,
+                                width: 150,
                                 child: Text(
                                   "Ted",
                                   style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: 24,
+                                    fontSize: 22,
                                     fontWeight: FontWeight.w900,
                                   ),
                                   maxLines: 1,

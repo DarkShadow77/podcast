@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:podcast/screens/settings.dart';
 import 'package:podcast/utils/colors.dart';
-import 'package:podcast/widgets/backgound.dart';
+import 'package:podcast/widgets/background.dart';
 
 import '../screens/home.dart';
 import '../widgets/back_arrow.dart';

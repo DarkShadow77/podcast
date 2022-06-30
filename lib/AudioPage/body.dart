@@ -6,7 +6,7 @@ import 'package:podcast/utils/colors.dart';
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';
 
 import '../widgets/back_arrow.dart';
-import '../widgets/backgound.dart';
+import '../widgets/background.dart';
 import '../widgets/custom_draw.dart';
 import '../widgets/pause_button.dart';
 import '../widgets/play_button.dart';

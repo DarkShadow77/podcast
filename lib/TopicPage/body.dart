@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:podcast/utils/colors.dart';
-import 'package:podcast/widgets/backgound.dart';
+import 'package:podcast/widgets/background.dart';
 
 import '../screens/audio.dart';
 import '../widgets/back_arrow.dart';

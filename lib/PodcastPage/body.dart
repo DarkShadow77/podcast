@@ -2,14 +2,14 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:podcast/screens/author.dart';
-import 'package:podcast/utils/colors.dart';
-import 'package:podcast/widgets/backgound.dart';
 
 import '../screens/audio.dart';
+import '../screens/author.dart';
+import '../utils/colors.dart';
 import '../widgets/back_arrow.dart';
+import '../widgets/background.dart';
 import '../widgets/bottom_bar.dart';
-import '../widgets/play_button.dart';
+import '../widgets/podcast_popover.dart';
 import 'podcast_episode.dart';
 
 class Body extends StatefulWidget {
@@ -154,7 +154,7 @@ class _BodyState extends State<Body> {
                                         ),
                                       ),
                                       SizedBox(
-                                        height: 15,
+                                        height: 10,
                                       ),
                                       Text(
                                         "Ted Talks Daily",
@@ -197,7 +197,7 @@ class _BodyState extends State<Body> {
                                         ),
                                       ),
                                       SizedBox(
-                                        height: 15,
+                                        height: 10,
                                       ),
                                       Row(
                                         mainAxisAlignment:
@@ -274,24 +274,18 @@ class _BodyState extends State<Body> {
                                         ],
                                       ),
                                       SizedBox(
-                                        height: 10,
+                                        height: 5,
                                       ),
-                                      Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 10.0),
-                                        child: Expanded(
-                                          child: Text(
-                                            "Every weekday, TED Talks Daily brings you the latest talks in audio. Join host and journalist Elise Hu for thought-provoking ideas on every subject imaginable -- from Artificial Intelligence to Zoology, and everything in between -- given by the world's leading thinkers and creators. With TED Talks Daily, find some space in your day to change your perspectives, ignite your curiosity, and learn something new.",
-                                            maxLines: isExpanded ? 3 : 11,
-                                            softWrap: true,
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 16,
-                                              height: 2,
-                                              fontWeight: FontWeight.bold,
-                                              overflow: TextOverflow.ellipsis,
-                                            ),
-                                          ),
+                                      Text(
+                                        "Every weekday, TED Talks Daily brings you the latest talks in audio. Join host and journalist Elise Hu for thought-provoking ideas on every subject imaginable -- from Artificial Intelligence to Zoology, and everything in between -- given by the world's leading thinkers and creators. With TED Talks Daily, find some space in your day to change your perspectives, ignite your curiosity, and learn something new.",
+                                        maxLines: isExpanded ? 3 : 11,
+                                        softWrap: true,
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 16,
+                                          height: 2,
+                                          fontWeight: FontWeight.bold,
+                                          overflow: TextOverflow.ellipsis,
                                         ),
                                       )
                                     ],
@@ -394,206 +388,12 @@ class _BodyState extends State<Body> {
     );
   }
 
-  Widget makeDismissible({required Widget child}) => GestureDetector(
-        behavior: HitTestBehavior.opaque,
-        onTap: () => Navigator.of(context).pop(),
-        child: GestureDetector(
-          onTap: () {},
-          child: child,
-        ),
-      );
-
-  Widget buildSheet() => makeDismissible(
-        child: DraggableScrollableSheet(
-          initialChildSize: 0.5,
-          builder: (_, controller) => Popover(
-            child: Container(
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      SizedBox(
-                        width: 270,
-                        child: Text(
-                          "Our Longing for cosmic truth and poetic beauty | Maria Popova",
-                          maxLines: 3,
-                          style: TextStyle(
-                            overflow: TextOverflow.ellipsis,
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        child: Row(
-                          children: [
-                            Icon(
-                              Icons.date_range_rounded,
-                              color: Colors.white,
-                              size: 16,
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Text(
-                              "28 May",
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          Container(
-                            child: Row(
-                              children: [
-                                PlayButton(
-                                  diameter: 40,
-                                  iconsize: 25,
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text(
-                                  "8 min",
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          Icon(
-                            Icons.playlist_add,
-                            color: Colors.white,
-                            size: 30,
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.done,
-                            color: Colors.white,
-                            size: 24,
-                          ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Text(
-                            "Mark as played",
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    "Linking together the histories of Henrietta Swan Leavitt, Edwin Hubble and Tracy K. Smith, poet and thinker Maria Popova crafts an astonishing story of how humanity came to see the edge of the observable universe. (Followed by an animated excerpt of 'My God, It's Full of Stars,' by Tracy K. Smith)",
-                    softWrap: true,
-                    maxLines: 30,
-                    style: TextStyle(
-                      height: 2,
-                      color: Colors.white,
-                      fontSize: 18,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
-      );
-
   void _handleFABPressed() {
     showModalBottomSheet(
       backgroundColor: Colors.transparent,
       context: context,
       isScrollControlled: true,
-      builder: (context) => buildSheet(),
-    );
-  }
-}
-
-class Popover extends StatelessWidget {
-  const Popover({
-    Key? key,
-    required this.child,
-  }) : super(key: key);
-
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-          margin: const EdgeInsets.all(10.0),
-          padding: const EdgeInsets.only(
-              right: 20.0, left: 20.0, top: 40.0, bottom: 20.0),
-          clipBehavior: Clip.antiAlias,
-          decoration: BoxDecoration(
-            color: AppColors.darkgrey,
-            borderRadius: const BorderRadius.all(Radius.circular(30.0)),
-          ),
-          child: ListView(
-            physics: BouncingScrollPhysics(),
-            children: [
-              if (child != null) child,
-            ],
-          ),
-        ),
-        Positioned(
-          left: 0,
-          right: 0,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: _buildHandle(context),
-          ),
-        )
-      ],
-    );
-  }
-
-  Widget _buildHandle(BuildContext context) {
-    return FractionallySizedBox(
-      widthFactor: 0.20,
-      child: Container(
-        margin: const EdgeInsets.symmetric(
-          vertical: 15.0,
-        ),
-        child: Container(
-          height: 5.0,
-          decoration: BoxDecoration(
-            color: AppColors.whiteColor,
-            borderRadius: const BorderRadius.all(Radius.circular(2.5)),
-          ),
-        ),
-      ),
+      builder: (context) => Podcast_Popover(),
     );
   }
 }
